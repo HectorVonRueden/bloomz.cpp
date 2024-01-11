@@ -1,4 +1,4 @@
-ifndef UNAME_S
+ifndef!UNAME_S
 UNAME_S := $(shell uname -s)
 endif
 
@@ -193,7 +193,7 @@ utils.o: utils.cpp utils.h
 	$(CXX) $(CXXFLAGS) -c utils.cpp -o utils.o
 
 clean:
-	rm -f *.o main quantize
+	rm -f  .o main quantize
 
 main: main.cpp ggml.o utils.o
 	$(CXX) $(CXXFLAGS) main.cpp ggml.o utils.o -o main $(LDFLAGS)
@@ -209,3 +209,4 @@ quantize: quantize.cpp ggml.o utils.o
 .PHONY: tests
 tests:
 	bash ./tests/run-tests.sh
+ 
